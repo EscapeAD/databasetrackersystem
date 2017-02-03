@@ -2,12 +2,23 @@
   <div class='row'>
     <div class='col-6'>
       <div class='card'>
-        <h1>Total Attendence</h1>
+        <div class="card-block">
+        <h4 class='card-title'>Total Database</h4>
+        <%= link_to 'Mange People', people_path, class: 'btn btn-primary'%>
+        <br>
+        <strong>People:</strong> <%= @people.length %>
+        </div>
       </div>
     </div>
     <div class='col-6'>
       <div class='card'>
-        <h1> Graph </h1>
+        <div class="card-block">
+          <h4 class='card-title'>Event Graph</h4>
+      </div>
       </div>
     </div>
   </div>
+  <section class='home-information'>
+    <h4>Real Time Events</h4>
+    <small>Last 20 events</small>
+  </section>
