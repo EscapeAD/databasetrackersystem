@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @booth.event.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @booth.name %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @booth.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @booth.end %>
+</p>
+
+<p>
+  <strong>Sponser:</strong>
+  <%= @booth.sponser %>
+</p>
+
+<%= link_to 'Edit', edit_event_booth_path(@booth) %> |
+<%= link_to 'Back', event_booths_path %>

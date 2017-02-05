@@ -4,4 +4,5 @@ class Event < ApplicationRecord
   validates :end,       presence: true
   validates :contact,   presence: true
   validates :location,  presence: true
+  has_many  :booths
 end
