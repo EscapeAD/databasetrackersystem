@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  get 'event/index'
-
-  get 'people/index'
-
   devise_for :users
   root  'home#index'
-  get   '/people',            to: 'people#index'
-  get   '/people/:id',        to: 'people#show'
-  post  '/people',            to: 'people#create'
 
+  resources :people
+  resources :events
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

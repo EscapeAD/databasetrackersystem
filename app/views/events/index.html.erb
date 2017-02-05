@@ -1,0 +1,13 @@
+<h1> Events </h1>
+<%= link_to 'Create Event', new_event_path, class: 'btn btn-primary' %>
+<% @events.each do |event| %>
+<br/><br/>
+<div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="http://placekitten.com/g/318/180" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title"><%= event.name %></h4>
+    <p class="card-text"><%= event.start %> - <%= event.end %> at <%= event.location %></p>
+    <%= link_to "View Event", event_path(event), class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

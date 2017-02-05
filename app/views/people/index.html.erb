@@ -40,7 +40,7 @@
       <% @people.each do |person| %>
     <tr>
       <th scope="row"><%= person.id %></th>
-      <td><%= person.name %></td>
+      <td><%= link_to "#{person.name}", person_path(person) %></td>
       <td><%= person.email %></td>
       <td><%= person.number %></td>
     </tr>
