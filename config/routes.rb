@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'people/index'
+
   devise_for :users
-  root 'home#index'
-  get  '/people',          to: 'home#all'
-  get '/people/:id',       to: 'home#show'
-  post '/people',          to: 'home#create'
+  root  'home#index'
+  get   '/people',            to: 'people#index'
+  get   '/people/:id',        to: 'people#show'
+  post  '/people',            to: 'people#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
