@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'event/index'
+
   get 'people/index'
 
   devise_for :users

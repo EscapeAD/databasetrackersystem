@@ -14,7 +14,7 @@ class PeopleController < ApplicationController
       flash[:notice] = "Creation successfully created"
       redirect_to people_path
     else
-      flash[:notice] = "Failed to Create"
+      flash[:alert] = "Failed to Create"
       redirect_to people_path
     end
   end
@@ -23,5 +23,5 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit(:name, :email, :number)
   end
-  
+
 end

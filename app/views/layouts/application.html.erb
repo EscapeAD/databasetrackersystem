@@ -38,9 +38,17 @@
        </div>
       </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class='container'>
+    <% if notice %>
+    <div class="alert alert-info" role="alert">
+      <span class='notice'><%= notice %></span>
+    </div>
+    <% end %>
+    <% if alert %>
+    <div class="alert alert-danger" role="alert">
+      <span class="alert"><%= alert %></span>
+    </div>
+    <% end %>
       <%= yield %>
     </div>
   </body>
