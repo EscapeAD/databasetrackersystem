@@ -19,6 +19,15 @@ class PeopleController < ApplicationController
     end
   end
 
+  def destroy
+    @person = Person.find(params[:id])
+    if @person.destroy
+      redirect_to people_path
+    else
+      render :show
+    end
+  end
+
   private
   def person_params
     params.require(:person).permit(:name, :email, :number)
