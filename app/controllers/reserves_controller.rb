@@ -17,8 +17,12 @@ class ReservesController < ApplicationController
     end
   end
 
-  def sign
+  def edit
     @reserve.where(event_id: @event.id, ticket: false)
+  end
+
+  def update
+    hex = SecureRandom.hex(10)
   end
 
   private
