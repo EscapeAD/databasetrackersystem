@@ -1,0 +1,13 @@
+<h1>Person Attending</h1>
+<%= form_for(@reserve, url: event_reserves_path) do |f| %>
+  <%= f.label :user_id %>
+  <%= f.select("person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %><br/>
+  <%= f.submit 'attend User', class: 'btn btn-primary' %>
+<% end %>
+<br><br>
+<div class='container'>
+  <h4> Current Attending </h4>
+  <% @people.each do |person| %>
+  <%= person.person.name %>
+  <% end %>
+</div>

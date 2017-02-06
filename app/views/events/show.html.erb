@@ -6,12 +6,16 @@
 
 <div class='card'>
   <div class="card-block">
+    <%= link_to 'Attend User', new_event_reserf_path(@event), class: 'btn btn-primary' %>
+    <%= link_to 'User Sign-In', new_event_reserf_path(@event), class: 'btn btn-primary' %>
+    <br/><br/>
     <div class='row'>
     <div class='col'>
-      <span class=''>People Reserved:</span>
+      <span class=''>People Reserved:</span> <%= @reserve.length %>
     </div>
     <div class='col'>
-      <span class=''>People signed-In:</span>
+      <span class=''>People signed-In:</span> <%= @reserve.where(ticket: true).length %>
+
     </div>
     </div>
   </div>

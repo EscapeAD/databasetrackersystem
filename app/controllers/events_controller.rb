@@ -8,8 +8,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
-    @booths = Booth.where(event_id: params[:id])
+    @event   = Event.find(params[:id])
+    @booths  = Booth.where(event_id: params[:id])
+    @reserve = Reserve.where(event_id: params[:id])
   end
 
   def edit
