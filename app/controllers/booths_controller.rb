@@ -6,13 +6,14 @@ class BoothsController < ApplicationController
   def index
     @booths = Booth.all
     @event  = Event.find(params[:event_id])
+    redirect_to event_path
   end
 
   # GET /booths/1
   # GET /booths/1.json
   def show
-    @event  = Event.find(params[:event_id])
     @booth  = Booth.find(params[:id])
+    @event  = @booth.event
   end
 
   # GET /booths/new
@@ -48,7 +49,7 @@ class BoothsController < ApplicationController
   def update
     respond_to do |format|
       if @booth.update(booth_params)
-        format.html { redirect_to @booth, notice: 'Booth was successfully updated.' }
+        format.html { redirect_to event_booth_path(@booth), notice: 'Booth was successfully updated.' }
         format.json { render :show, status: :ok, location: @booth }
       else
         format.html { render :edit }
@@ -62,7 +63,7 @@ class BoothsController < ApplicationController
   def destroy
     @booth.destroy
     respond_to do |format|
-      format.html { redirect_to booths_url, notice: 'Booth was successfully destroyed.' }
+      format.html { redirect_to event_booths_url, notice: 'Booth was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
