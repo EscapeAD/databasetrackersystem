@@ -15,7 +15,10 @@ class ReservesController < ApplicationController
       flash[:alert] = 'Something went wrong'
       render :new
     end
+  end
 
+  def sign
+    @reserve.where(event_id: @event.id, ticket: false)
   end
 
   private
