@@ -18,7 +18,8 @@ class ReservesController < ApplicationController
   end
 
   def edit
-    @reserve.where(event_id: @event.id, ticket: false)
+  @notsigned = @reserve.where(event_id: @event.id, ticket: false)
+  @signed    = @reserve.where(event_id: @event.id, ticket: true)
   end
 
   def update

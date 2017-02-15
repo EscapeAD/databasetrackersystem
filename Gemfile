@@ -65,3 +65,4 @@ source 'https://rails-assets.org' do
 end
 gem "chartkick"
 gem 'rqrcode'
+gem 'carrierwave', '~> 1.0'
