@@ -3,6 +3,4 @@
 backend - admin + future frontend.
 
 
-`
-- Adam Tse
-`
+` - Adam Tse `
