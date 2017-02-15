@@ -18,8 +18,9 @@ class ReservesController < ApplicationController
   end
 
   def edit
-  @notsigned = @reserve.where(event_id: @event.id, ticket: false)
-  @signed    = @reserve.where(event_id: @event.id, ticket: true)
+  @reserve   = Reserve.find(params[:id])
+  @notsigned = Reserve.where(event_id: @event.id, ticket: false).map { |x| Person.find(x.person_id) }
+  @signed    = Reserve.where(event_id: @event.id, ticket: true).map { |x| Persone.find(x.person_id) }
   end
 
   def update
