@@ -1,5 +1,5 @@
 <h1>Person Attending</h1>
-<%= form_for(@reserve, url: event_reserves_path) do |f| %>
+<%= form_for(@reserve, url: event_reserf_path) do |f| %>
   <%= f.label :user_id %>
   <%= f.select("person_id", @notsigned.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %><br/>
   <%= f.submit 'attend User', class: 'btn btn-primary' %>
@@ -8,6 +8,6 @@
 <div class='container'>
   <h4> Current Signed in </h4>
   <% @signed.each do |person| %>
-  <%= person.person.name %>
+  <%= person.person.name %> - <%= link_to "QR", "/qr/#{person.event_hex}"%>
   <% end %>
 </div>

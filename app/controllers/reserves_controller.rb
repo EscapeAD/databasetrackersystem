@@ -1,5 +1,5 @@
 class ReservesController < ApplicationController
-  before_action :current_event
+  before_action :current_event, except: [:qr]
 
   def new
     @people = Reserve.where(event_id: @event.id)
@@ -20,11 +20,17 @@ class ReservesController < ApplicationController
   def edit
   @reserve   = Reserve.find(params[:id])
   @notsigned = Reserve.where(event_id: @event.id, ticket: false).map { |x| Person.find(x.person_id) }
-  @signed    = Reserve.where(event_id: @event.id, ticket: true).map { |x| Persone.find(x.person_id) }
+  @signed    = Reserve.where(event_id: @event.id, ticket: true)
   end
 
   def update
+    @reserve   = Reserve.find(params[:id])
     hex = SecureRandom.hex(10)
+    @reserve.update(ticket: true, event_hex: hex)
+  end
+
+  def qr
+    @qr = RQRCode::QRCode.new( "#{params[:qr]}", :size => 4, :level => :h )
   end
 
   private
