@@ -14,6 +14,7 @@ class BoothsController < ApplicationController
   def show
     @booth  = Booth.find(params[:id])
     @event  = @booth.event
+    @vistors = Resbooth.where(booth_id: params[:id]).sort.reverse.first(20)
   end
 
   # GET /booths/new
@@ -69,8 +70,22 @@ class BoothsController < ApplicationController
   end
 
   def atnuser
-    @people = Reserve.where(event_id: params[:event_id], ticket: true).map { |user| Person.find(user.person_id) }
+    @people   = Reserve.where(event_id: params[:event_id], ticket: true).map { |user| Person.find(user.person_id) }
+    @all      = Resbooth.where(booth_id: params[:booth_id])
+    @resbooth = Resbooth.new
+  end
 
+  def createatnuser
+    @resbooth = Resbooth.new(booth_id: params[:booth_id], person_id: params[:resbooth][:person])
+    puts params[:resbooth][:person]
+    # byebug
+    puts @resbooth
+    if @resbooth.save
+      redirect_to event_booth_new_path
+    else
+      flash[:notice] = 'it broke'
+      redirect_to event_booth_new_path
+    end
   end
 
   private
@@ -83,4 +98,7 @@ class BoothsController < ApplicationController
     def booth_params
       params.require(:booth).permit(:name, :start, :end, :sponser).merge(event_id: params[:event_id])
     end
+    # def resbooth_params
+    #   params.require(:resbooth).merge(booths_id: params['booth_id'], people_id: params['person'])
+    # end
 end

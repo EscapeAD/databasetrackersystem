@@ -31,3 +31,7 @@
 
   <h1>Visitors</h1>
   <%= link_to "Attend Booth", event_booth_new_path(@booth.event_id, @booth.id), class: 'btn btn-primary'%>
+  </br>
+  <% @vistors.each do |person| %>
+  <%= person.person.name %> -  <%= person.created_at.strftime("%d-%m-%Y - %I:%M:%S %p") %></br>
+  <% end %>

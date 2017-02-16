@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20170216205023) do
   end
 
   create_table "resbooths", force: :cascade do |t|
-    t.integer  "booths_id"
-    t.integer  "users_id"
+    t.integer  "booth_id"
+    t.integer  "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booths_id"], name: "index_resbooths_on_booths_id", using: :btree
-    t.index ["users_id"], name: "index_resbooths_on_users_id", using: :btree
+    t.index ["booth_id"], name: "index_resbooths_on_booth_id", using: :btree
+    t.index ["person_id"], name: "index_resbooths_on_person_id", using: :btree
   end
 
   create_table "reserves", force: :cascade do |t|
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20170216205023) do
   end
 
   add_foreign_key "booths", "events"
-  add_foreign_key "resbooths", "booths", column: "booths_id"
-  add_foreign_key "resbooths", "users", column: "users_id"
+  add_foreign_key "resbooths", "booths"
+  add_foreign_key "resbooths", "people"
   add_foreign_key "reserves", "events"
   add_foreign_key "reserves", "people"
 end

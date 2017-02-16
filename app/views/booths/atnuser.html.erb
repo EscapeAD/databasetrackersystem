@@ -1,0 +1,10 @@
+<%= form_for(@resbooth, url: event_booth_create_path) do |f| %>
+  <%= f.label :person_id %>
+  <%= f.select("person", @people.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %><br/>
+  <%= f.submit 'attend User', class: 'btn btn-primary' %>
+<% end %>
+
+<h1> People</h1>
+<% @all.each do |person| %>
+<%= person.person.name %> - Attended at: <%= person.created_at.strftime("%d-%m-%Y - %I:%M:%S %p") %></br>
+<% end %>

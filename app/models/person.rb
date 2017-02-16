@@ -3,4 +3,5 @@ class Person < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
   has_many  :reserve
+  has_many  :resbooths
 end

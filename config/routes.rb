@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :booths do
       get '/new', to: 'booths#atnuser'
+      post '/create', to: 'booths#createatnuser'
     end
     resources :reserves, only: [:new, :create, :edit, :update]
   end
