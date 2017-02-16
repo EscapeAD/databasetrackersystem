@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :people
   resources :events do
-    resources :booths
+    resources :booths do
+      get '/new', to: 'booths#atnuser'
+    end
     resources :reserves, only: [:new, :create, :edit, :update]
   end
   get '/qr/:qr', to: 'reserves#qr'

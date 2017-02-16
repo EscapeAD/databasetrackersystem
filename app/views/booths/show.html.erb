@@ -30,4 +30,4 @@
 <%= link_to 'Back', event_path %>
 
   <h1>Visitors</h1>
-  <%= link_to "Attend Booth", root_path, class: 'btn btn-primary'%>
+  <%= link_to "Attend Booth", event_booth_new_path(@booth.event_id, @booth.id), class: 'btn btn-primary'%>

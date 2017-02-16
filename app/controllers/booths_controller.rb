@@ -68,6 +68,11 @@ class BoothsController < ApplicationController
     end
   end
 
+  def atnuser
+    @people = Reserve.where(event_id: params[:event_id], ticket: true).map { |user| Person.find(user.person_id) }
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booth
