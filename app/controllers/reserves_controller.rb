@@ -4,6 +4,9 @@ class ReservesController < ApplicationController
   def new
     @people = Reserve.where(event_id: @event.id)
     @reserve = Reserve.new
+    if params[:search]
+      render json: Person.where("name ILIKE '%#{params[:search]}%' OR email ILIKE '%#{params[:search]}%' OR number ILIKE '%#{params[:search]}%'")
+    end
   end
 
   def create

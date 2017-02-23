@@ -1,10 +1,10 @@
 <h1>Person Attending</h1>
 <div id='topHead' class='row'>
   <div class='col-md-6'>
-<%= form_tag('/', id: 'search') do %>
+<%= form_tag('/', id: 'search', "data-event-id": "#{params[:event_id]}") do %>
 <%= label_tag(:search, "Search for:") %>
 <%= text_field_tag(:search) %>
-<%= submit_tag("Search", class:'btn btn-primary') %>
+<%= submit_tag("Search", class:'btn-primary btn') %>
 <% end %>
 
 <%= form_for(@reserve, url: event_reserves_path) do |f| %>
@@ -14,9 +14,7 @@
 <% end %>
 </div>
 <div id='userResult' class='col-md-6'>
-<% (1..100).to_a.each do |x| %>
-  TEST NAME | BABY | GoD@gmail.com | 3423423 || ADD USER</br>
-<% end %>
+
 </div>
 </div>
 <br><br>
