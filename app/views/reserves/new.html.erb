@@ -1,9 +1,24 @@
 <h1>Person Attending</h1>
+<div id='topHead' class='row'>
+  <div class='col-md-6'>
+<%= form_tag('/', id: 'search') do %>
+<%= label_tag(:search, "Search for:") %>
+<%= text_field_tag(:search) %>
+<%= submit_tag("Search", class:'btn btn-primary') %>
+<% end %>
+
 <%= form_for(@reserve, url: event_reserves_path) do |f| %>
   <%= f.label :user_id %>
   <%= f.select("person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %><br/>
   <%= f.submit 'attend User', class: 'btn btn-primary' %>
 <% end %>
+</div>
+<div id='userResult' class='col-md-6'>
+<% (1..100).to_a.each do |x| %>
+  TEST NAME | BABY | GoD@gmail.com | 3423423 || ADD USER</br>
+<% end %>
+</div>
+</div>
 <br><br>
 <div class='container'>
   <h4> Current Attending </h4>

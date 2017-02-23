@@ -20,3 +20,12 @@
 
 .qrcode > td.black { border-color: #000; }
 .qrcode > td.white { border-color: #fff; }
+
+#topHead{
+  height: 15em;
+}
+
+#userResult{
+  border: 1px solid black;
+  overflow: scroll;
+}
