@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready('turbolinks:load', function(){
   $('#search').submit(function(event){
     event.preventDefault();
     console.log($('input[type=text]').val())
