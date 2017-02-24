@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-6'>
       <div class='card'>
-        <div class="card-block">
+        <div class="card-block carddb">
         <h4 class='card-title'>Total Database</h4>
         <%= link_to 'Mange People', people_path, class: 'btn btn-primary'%>
         <br>
@@ -12,8 +12,13 @@
     </div>
     <div class='col-6'>
       <div class='card'>
-        <div class="card-block">
-          <h4 class='card-title'>Event Graph</h4>
+        <div class="card-block carddb">
+          <h4 class='card-title'>Tracking</h4>
+          <strong>Person added</strong>
+            <%= line_chart Person.group_by_day(:created_at).count %>
+
+          <strong>People attend</strong>
+
       </div>
       </div>
     </div>

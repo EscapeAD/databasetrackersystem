@@ -66,3 +66,4 @@ end
 gem "chartkick"
 gem 'rqrcode'
 gem 'carrierwave', '~> 1.0'
+gem 'groupdate'
