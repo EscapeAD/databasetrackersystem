@@ -25,5 +25,8 @@
   </div>
   <section class='home-information'>
     <h4>Real Time Events</h4>
-    <small>Last 20 events</small>
+    <small>Last 20 events</small><br/>
+    <% Last.last.each do |event| %>
+    <%= event[0] %> <span class='pull-right'><%= event[1]%></span></br>
+    <% end %>
   </section>

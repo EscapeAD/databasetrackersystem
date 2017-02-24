@@ -6,9 +6,9 @@ class Last
                                                     .reverse.last(20)
     return final.map do |check|
       if Person.all.include? check
-         "#{check.created_at} - #{check.name} added to database"
+         ["#{check.created_at.strftime("%d-%m-%Y - %I:%M:%S %p")}","#{check.name} added to database"]
        elsif Reserve.all.include? check
-         "#{check.created_at} - #{Person.find(check.person_id).name} attended event #{Event.find(check.event_id).name}"
+         ["#{check.created_at.strftime("%d-%m-%Y - %I:%M:%S %p")} "," #{Person.find(check.person_id).name} attended event #{Event.find(check.event_id).name}"]
       end
     end
   end
