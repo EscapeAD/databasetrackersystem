@@ -67,3 +67,4 @@ gem "chartkick"
 gem 'rqrcode'
 gem 'carrierwave', '~> 1.0'
 gem 'groupdate'
+gem 'rack-cors', :require => 'rack/cors'
