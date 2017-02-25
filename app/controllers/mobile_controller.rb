@@ -1,3 +1,5 @@
+require 'json_web_token'
+
 class MobileController < ApplicationController
   attr_reader :current_user
 

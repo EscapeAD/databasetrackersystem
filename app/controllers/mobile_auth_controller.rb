@@ -1,10 +1,14 @@
+require 'json_web_token'
+
 class MobileAuthController < MobileController
+  skip_before_action :verify_authenticity_token
+
   def authenticate_user
     user = User.find_for_database_authentication(email: params[:email])
-    if user.valid_password?(params[:password])
+    if user && user.valid_password?(params[:password])
       render json: payload(user)
     else
-      render json: {errors: ['Invalid Username/Password']}, status: :unauthorized
+      render json: {errors: ['Invalid Email/Password']}, status: :unauthorized
     end
   end
 

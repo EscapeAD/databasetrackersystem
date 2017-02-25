@@ -1,8 +1,8 @@
-require 'json_web_token'
+# require 'jwt'
 
 class JsonWebToken
   def self.encode(payload)
-    JWT.encode(payload, Figaro.env.jwt_secret)
+    JWT.encode(payload, Figaro.env.jwt_secret, 'HS256')
   end
 
   def self.decode(token)
