@@ -1,4 +1,5 @@
-$(document).ready('turbolinks:load', function(){
+$(document).on('turbolinks:load', function() {
+  console.log('loaded')
   $('#search').submit(function(event){
     event.preventDefault();
     console.log($('input[type=text]').val())
@@ -10,6 +11,9 @@ $(document).ready('turbolinks:load', function(){
     }).success(function(data){
       console.log(data);
       console.log('yes!');
+      if(data.length == 0){
+        $('#userResult').append("<span>No Matches</span>");
+      }
       for(var i = 0; i < data.length; i++){
         console.log(data[i]);
         $('#userResult').append("<a class='userResult' data-id='" + data[i].id + "' href='/events'>" + data[i].name + "</a>" + " - " + data[i].email + " - " + data[i].number  )
