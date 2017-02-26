@@ -2,7 +2,7 @@
 
 class JsonWebToken
   def self.encode(payload)
-    JWT.encode(payload, Figaro.env.jwt_secret, 'HS256')
+    JWT.encode(payload, Figaro.env.jwt_secret)
   end
 
   def self.decode(token)

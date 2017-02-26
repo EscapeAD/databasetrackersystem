@@ -68,5 +68,6 @@ gem 'rqrcode'
 gem 'carrierwave', '~> 1.0'
 gem 'groupdate'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'jwt', git: "git://github.com/jwt/ruby-jwt"
+gem 'jwt'
+# gem 'jwt', git: "git://github.com/jwt/ruby-jwt"
 gem 'figaro'

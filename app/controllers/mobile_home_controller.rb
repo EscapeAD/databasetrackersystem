@@ -1,7 +1,9 @@
 class MobileHomeController < MobileController
-  before_filter :authenticate_request!
+  before_action :authenticate_request!
 
 def index
-  render json: {'logged_in': true, }
+  @events = Event.all
+  @booths = Booth.all
+  render json: {'logged_in': true, 'event': @events, 'booth': @booths }
 end
 end
