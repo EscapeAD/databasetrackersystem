@@ -33,4 +33,15 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
+  var qrNav = true;
+  $('.qr-code').click(function(event){
+    if(qrNav){
+      $('.navbar > .container').css('display', 'none')
+      qrNav = false;
+    } else {
+      qrNav = true;
+      $('.navbar > .container').css('display', 'flex')
+    }
+  })
+
 })
