@@ -33,7 +33,7 @@ class ReservesController < ApplicationController
   end
 
   def qr
-    @qr = RQRCode::QRCode.new( "#{params[:qr]}", :size => 4, :level => :h )
+    @qr = RQRCode::QRCode.new(params[:qr], size: 4)
   end
 
   private
