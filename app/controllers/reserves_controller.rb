@@ -23,13 +23,15 @@ class ReservesController < ApplicationController
   def edit
   @reserve   = Reserve.find(params[:id])
   @notsigned = Reserve.where(event_id: @event.id, ticket: false).map { |x| Person.find(x.person_id) }
-  @signed    = Reserve.where(event_id: @event.id, ticket: true)
+  @signed    = Reserve.where(event_id: @event.id, ticket: true).reverse
   end
 
   def update
-    @reserve   = Reserve.find(params[:id])
+    puts params
+    @reserve = Reserve.find_by(event_id: params[:event_id], person_id: params[:reserve][:person_id])
     hex = SecureRandom.hex(10)
     @reserve.update(ticket: true, event_hex: hex)
+    redirect_to edit_event_reserf_path
   end
 
   def qr

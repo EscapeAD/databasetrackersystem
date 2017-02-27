@@ -7,7 +7,20 @@
 <br><br>
 <div class='container'>
   <h4> Current Signed in </h4>
+  <table class='table'>
+  <tr>
+    <th>Name</th>
+    <th>email</th>
+    <th>Date / Time</th>
+    <th>QR code</th>
+  </tr>
   <% @signed.each do |person| %>
-  <%= person.person.name %> - <%= link_to "QR", "/qr/#{person.event_hex}"%>
+  <tr>
+  <td><%= person.person.name %></td>
+  <td><%= person.person.email %></td>
+  <td><%= person.created_at.strftime("%d-%m-%Y - %I:%M:%S %p") %></td>
+  <td><%= link_to "QR", "/qr/#{person.event_hex}"%></td>
+</tr>
   <% end %>
+  </table>
 </div>
