@@ -7,13 +7,17 @@
 <%= submit_tag("Search", class:'btn-primary btn') %>
 <% end %>
 
-<%= form_for(@reserve, url: event_reserves_path) do |f| %>
-  <%= f.label :user_id %>
-  <%= f.select("person_id", Person.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %><br/>
-  <%= f.submit 'attend User', class: 'btn btn-primary' %>
+<% if Person.any? %>
+  <%= form_for(@reserve, url: event_reserves_path) do |f| %>
+    <%= f.label :user_id %>
+    <%= f.select("person_id", Person.all.collect {|p| [ p.name, p.id ] }) %><br/>
+    <%= f.submit 'attend User', class: 'btn btn-primary' %>
+  <% end %>
+<% else %>
+<span> Currently there are no people in database </span>
 <% end %>
-</div>
 
+</div>
 <div id='userResult' class='col-md-6'>
 
 </div>

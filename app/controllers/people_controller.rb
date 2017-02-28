@@ -21,6 +21,8 @@ class PeopleController < ApplicationController
 
   def destroy
     @person = Person.find(params[:id])
+    Reserve.destroy_all(person_id: params[:id])
+    Resbooth.destroy_all(person_id: params[:id])
     if @person.destroy
       redirect_to people_path
     else
