@@ -13,6 +13,7 @@
   <%= f.submit 'attend User', class: 'btn btn-primary' %>
 <% end %>
 </div>
+
 <div id='userResult' class='col-md-6'>
 
 </div>
@@ -21,6 +22,6 @@
 <div class='container'>
   <h4> Current Attending </h4>
   <% @people.each do |person| %>
-  <%= person.person.name %>
+  <%= person.person.name %><br>
   <% end %>
 </div>

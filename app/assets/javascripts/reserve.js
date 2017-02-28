@@ -16,7 +16,8 @@ $(document).on('turbolinks:load', function() {
       }
       for(var i = 0; i < data.length; i++){
         console.log(data[i]);
-        $('#userResult').append("<a class='userResult' data-id='" + data[i].id + "' href='/events'>" + data[i].name + "</a>" + " - " + data[i].email + " - " + data[i].number  )
+
+        $('#userResult').append("<a class='userResult' data-id='" + data[i].id + "' href='/events'>" + data[i].name + "</a>" + " - " + data[i].email + " - " + data[i].number + "</br>"  )
         $(".userResult").on("click", function(event){
           event.preventDefault();
           console.log($(this).data('id'));
