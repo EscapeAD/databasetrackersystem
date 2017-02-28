@@ -22,7 +22,7 @@ class ReservesController < ApplicationController
 
   def edit
   @reserve   = Reserve.find(params[:id])
-  @notsigned = Reserve.where(event_id: @event.id, ticket: false).map { |x| Person.find(x.person_id) }
+  @notsigned    = Reserve.where(event_id: @event.id, ticket: false).map { |x| Person.find(x.person_id) }
   @signed    = Reserve.where(event_id: @event.id, ticket: true).reverse
   end
 

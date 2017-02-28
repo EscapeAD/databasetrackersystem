@@ -1,8 +1,12 @@
 <h1>Person Attending</h1>
+<% if @notsigned.any? %>
 <%= form_for(@reserve, url: event_reserf_path) do |f| %>
   <%= f.label :user_id %>
-  <%= f.select("person_id", @notsigned.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %><br/>
+  <%= f.select("person_id", @notsigned.collect {|p| [ p.name, p.id ] }) %><br/>
   <%= f.submit 'attend User', class: 'btn btn-primary' %>
+<% end %>
+  <% else %>
+  <span> Currently No Users Added</span>
 <% end %>
 <br><br>
 <div class='container'>
