@@ -71,3 +71,4 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'jwt'
 # gem 'jwt', git: "git://github.com/jwt/ruby-jwt"
 gem 'figaro'
+gem 'rails_12factor', group: :production
