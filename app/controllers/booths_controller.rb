@@ -37,7 +37,7 @@ class BoothsController < ApplicationController
 
     respond_to do |format|
       if @booth.save
-        format.html { redirect_to event_booth_path(@booth), notice: 'Booth was successfully created.' }
+        format.html { redirect_to event_path(params[:event_id]), notice: 'Booth was successfully created.' }
         format.json { render :show, status: :created, location: @booth }
       else
         format.html { render :new }
