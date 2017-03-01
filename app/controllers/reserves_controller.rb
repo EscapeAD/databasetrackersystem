@@ -1,4 +1,5 @@
 class ReservesController < ApplicationController
+  before_action :authenticate_user!
   before_action :current_event, except: [:qr]
 
   def new

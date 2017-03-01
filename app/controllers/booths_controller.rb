@@ -1,4 +1,5 @@
 class BoothsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_booth, only: [:show, :edit, :update, :destroy]
 
   # GET /booths
