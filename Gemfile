@@ -65,7 +65,7 @@ source 'https://rails-assets.org' do
 end
 gem "chartkick"
 gem 'rqrcode'
-gem 'carrierwave', '~> 1.0'
+# gem 'carrierwave', '~> 1.0'
 gem 'groupdate'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'jwt'
