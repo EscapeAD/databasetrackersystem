@@ -15,7 +15,9 @@ def stats
 end
 
 def ticket
+  puts params
   user      = Reserve.find_by(event_hex: params[:user_hex])
+  puts user
   @resbooth = Resbooth.new(booth_id: params[:booth_id], person_id: user[:person_id])
   if @resbooth.save
     render json: {'result': "Welcome #{user.person.name}"}
