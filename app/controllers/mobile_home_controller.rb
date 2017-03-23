@@ -18,8 +18,9 @@ end
 def ticket
   puts params
   user      = Reserve.find_by(event_hex: params[:user_hex])
+  booth     = Booth.find_by(event_id: user.event_id, name: params[:booth_id])
   puts user
-  @resbooth = Resbooth.new(booth_id: params[:booth_id], person_id: user[:person_id])
+  @resbooth = Resbooth.new(booth_id: booth.id, person_id: user[:person_id])
   if @resbooth.save
     render json: {'result': "Welcome #{user.person.name}"}
   else
